@@ -6,6 +6,8 @@ use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class TypeController extends Controller
 {
@@ -14,7 +16,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.index', compact("types"));
     }
 
     /**
@@ -22,7 +25,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -30,7 +33,6 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
     }
 
     /**
@@ -38,7 +40,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -46,7 +48,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -54,7 +56,6 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
     }
 
     /**
@@ -62,6 +63,6 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 }

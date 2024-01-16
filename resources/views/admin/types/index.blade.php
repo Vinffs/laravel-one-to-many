@@ -25,8 +25,7 @@
                 @foreach ($types as $type)
                     <tr class="text-center no-display">
                         <th scope="row" class="text-start fw-normal">
-                            <img class="avatar" width="30" height="30"
-                                src="{{ Vite::asset("public/img/$type->image.svg") }}" alt="{{ $type->image }}" />
+                            {{ $type->id }}
                         </th>
                         <td>{{ $type->name }}</td>
                         <td>

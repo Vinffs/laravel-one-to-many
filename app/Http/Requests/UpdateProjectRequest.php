@@ -27,6 +27,7 @@ class UpdateProjectRequest extends FormRequest
             'description' => ['nullable'],
             'image' => 'required',
             'thumb' => 'nullable',
+            'type_id' => ['nullable', 'exists:types,id'],
         ];
     }
 

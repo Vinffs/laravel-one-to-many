@@ -26,6 +26,7 @@ class StoreProjectRequest extends FormRequest
             'description' => ['nullable'],
             'image' => 'required',
             'thumb' => 'nullable',
+            'type_id' => ['nullable', 'exists:types,id'],
         ];
     }
 
@@ -37,6 +38,7 @@ class StoreProjectRequest extends FormRequest
             'title.max' => 'Project title may not be greater than :max characters.',
             'title.unique' => 'Project title already exists.',
             'image.required' => 'Project image is required.',
+
         ];
     }
 }
