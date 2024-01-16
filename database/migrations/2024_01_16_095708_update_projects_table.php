@@ -9,15 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('image', 20);
-            $table->string('title', 100)->unique();
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('projects', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 
@@ -26,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropForeign(['projects_user_id_foreign']);
+        });
     }
 };

@@ -16,6 +16,7 @@ class ProjectSeeder extends Seeder
         $projects = config('db.projects');
         foreach ($projects as $project) {
             $newPost = new Project();
+            $newPost->user_id = 1;
             $newPost->image = $project['image'];
             $newPost->thumb = $project['thumb'];
             $newPost->title = $project['title'];
