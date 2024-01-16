@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreTypeRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,17 @@ class StoreTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'min:3', 'max:200', 'unique:types'],
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Name is required',
+            'name.min' => 'Name must be at least :min characters',
+            'name.max' => 'Name must be at most :max characters',
         ];
     }
 }
