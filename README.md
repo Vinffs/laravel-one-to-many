@@ -7,26 +7,24 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# LARAVEL AUTH
+# laravel-one-to-many
 
-creiamo con Laravel il nostro sistema di gestione del nostro Portfolio di progetti. <br>
-
-Oggi iniziamo un nuovo progetto che si arricchirà nel corso delle prossime lezioni: man mano aggiungeremo funzionalità e vedremo la nostra applicazione crescere ed evolvere. <br>
-
-Nel pomeriggio, rifate ciò che abbiamo visto insieme stamattina stilando tutto a vostro piacere utilizzando SASS. <br>
+continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità Type. Questa entità rappresenta la tipologia di progetto ed è in relazione one to many con i progetti. <br>
 
 ## Descrizione:
-- Ripercorriamo gli steps fatti a lezione ed iniziamo un nuovo progetto usando laravel breeze ed il pacchetto con autenticazione (utilizzate il template su github).
-- Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
-- Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office <br>
-- Creazione del modello `Project` con relativa migrazione, seeder, controller, validazioni e rotte <br>
-- Per la parte di back-office creiamo un resource controller `Admin\ProjectController` per gestire tutte le operazioni CRUD dei progetti <br>
-- Implementare la visualizzazione dei dati nella index dei progetti con una tabella (con bottoni per show, edit, e delete) <br>
+I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi: <br>
+- creare la migration per la tabella types
+- creare il model Type
+- creare la migration di modifica per la tabella projects per aggiungere la chiave esterna
+- aggiungere ai model Type e Project i metodi per definire la relazione one to many
+- visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
+- permettere all’utente di associare una tipologia nella pagina di creazione e modifica di un progetto
+- gestire il salvataggio dell’associazione progetto-tipologia con opportune regole di validazione
 
-## Bonus
-Iniziare ad implementare un template (con relativi partials) per una dashboard di amministrazione
+## Bonus 1
+creare il seeder per il model Type.
 
-15/01
 
-Continuiamo a lavorare nella repo dei giorni scorsi e aggiungiamo un’immagine ai nostri progetti con il fileupload. <br>
-Ricordiamoci di creare il symlink con l’apposito comando artisan e di aggiungere l’attributo enctype="multipart/form-data" ai form di creazione e di modifica!
+## Bonus 2
+aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+
