@@ -4,9 +4,11 @@
         <h1>
             {{ $type->name }}
         </h1>
-        @foreach ($type->projects as $project)
-            <h2>{{ $project->title }}</h2>
-        @endforeach
+        @forelse ($type->projects as $project)
+            <li>{{ $project->title }}</li>
+        @empty
+            <li>No projects</li>
+        @endforelse
         <a href="{{ route('admin.types.index') }}" class="btn btn-danger">Return</a>
     </section>
 @endsection
